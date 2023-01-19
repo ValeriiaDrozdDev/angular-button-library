@@ -1,0 +1,97 @@
+:host {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Manrope;
+  border: none;
+  cursor: pointer;
+
+  div {
+    display: none;
+    position: absolute;
+    top: -4px;
+    height: calc(100% + 4px);
+    left: -4px;
+    width: calc(100% + 4px);
+    border-radius: 100px;
+    border: 2px dotted #1a2143;
+  }
+
+  &:focus div {
+    display: block;
+  }
+
+  &[filled-button-color="primary"] {
+    background-color: #3f4fa0;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #394892;
+    }
+    &:focus:active {
+      background-color: #2d3872;
+    }
+
+    svg path {
+      fill: #ffffff;
+    }
+  }
+  &[filled-button-color="secondary"] {
+    background-color: #ecedf6;
+    color: #3f4fa0;
+    &:hover {
+      background-color: #d9dcec;
+    }
+    &:focus:active {
+      background-color: #c5cae3;
+    }
+
+    svg path {
+      fill: #3f4fa0;
+    }
+  }
+  &[filled-button-color="danger"] {
+    background-color: #fff1f0;
+    color: #fa6e6b;
+    &:hover {
+      background-color: #ffeae9;
+    }
+    &:focus:active {
+      background-color: #ffe2e0;
+    }
+    svg path {
+      fill: #fa6e6b;
+    }
+  }
+
+  &[filled-button-size="primary"] {
+    padding: 17px 24px;
+  }
+  &[filled-button-size="small"] {
+    padding: 8px 16px;
+  }
+
+  &[filled-button-disabled] {
+    &,
+    &:hover,
+    &:active:focus,
+    &:focus {
+      color: #a2a2a2;
+      background-color: #e4e4e4;
+      cursor: not-allowed;
+      &:focus div {
+        display: none;
+      }
+      svg path {
+        fill: #a2a2a2;
+      }
+    }
+  }
+}
